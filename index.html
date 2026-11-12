@@ -33,7 +33,7 @@ input::placeholder{color:#8a8275}
   <main id="top">
 
     <!-- Hero -->
-    <section aria-labelledby="hero-title" style="background-color: #0c0b0a; background-image: radial-gradient(rgba(236, 230, 218, 0.07) 1px, transparent 1px); background-size: 18px 18px; border-bottom: 1px solid #2b2620;">
+    <section aria-labelledby="hero-title" style="background-color: #0c0b0a; border-bottom: 1px solid #2b2620;">
       <div style="max-width: 1120px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 48px) clamp(80px, 9vw, 128px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(32px, 6vw, 72px);">
 
         <div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
@@ -413,6 +413,16 @@ document.querySelectorAll('form').forEach(function (form) {
     note.textContent = 'Signups are not open yet. Check back soon.';
   });
 });
+</script>
+<script src="registration.js"></script>
+<script>
+// Animated hero background (ArtGen effect). Skipped for visitors who prefer reduced motion.
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var hero=document.querySelector('section[aria-labelledby="hero-title"]');
+  if(!hero)return;
+  if(!window.Registration)return;Registration.mount(hero,{background:'transparent'});
+})();
 </script>
 </body>
 </html>
